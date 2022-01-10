@@ -34,10 +34,6 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public void currentStationForCoverage(int currentStation) {
-        this.currentStation = currentStation;
-    }
-
     //увеличение радиостанции
     public int increaseCurrentStation() {
         if (currentStation < 9) {
@@ -76,7 +72,8 @@ public class Radio {
     public int increaseVolume() {
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
-        }
+        } else
+            currentVolume = getCurrentVolume();
         return currentVolume;
     }
 
@@ -84,7 +81,7 @@ public class Radio {
     public int decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
-        }
+        } else currentVolume = getCurrentVolume();
         return currentVolume;
     }
 }
