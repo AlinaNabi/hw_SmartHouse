@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class  RadioTest {
+class RadioTest {
 
 
     //переключение радиостанции на следующую
@@ -16,7 +16,7 @@ class  RadioTest {
     }
 
     @Test
-   public void shouldIncreaseCurrentStationMin1() {
+    public void shouldIncreaseCurrentStationMin1() {
         Radio rad = new Radio();
         rad.setCurrentStation(1);
 
@@ -45,6 +45,7 @@ class  RadioTest {
 
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldIncreaseCurrentStationMid8() {
         Radio rad = new Radio();
@@ -117,6 +118,7 @@ class  RadioTest {
         int expected = 0;
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldDecreaseCurrentStationMoreMin() {
         Radio rad = new Radio();
@@ -126,6 +128,7 @@ class  RadioTest {
         int expected = 0;
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldGetDecreaseCurrentStationMoreMin() {
         Radio rad = new Radio();
@@ -146,6 +149,7 @@ class  RadioTest {
         int expected = 1;
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldIncreaseCurrentVolumeMax() {
         Radio rad = new Radio();
@@ -153,8 +157,9 @@ class  RadioTest {
 
         int actual = rad.getCurrentVolume();
         int expected = 0;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     void shouldIncreaseCurrentVolumeMid() {
         Radio rad = new Radio();
@@ -162,8 +167,9 @@ class  RadioTest {
 
         int actual = rad.increaseVolume();
         int expected = 6;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     void shouldIncreaseCurrentVolumeMoreMin() {
         Radio rad = new Radio();
@@ -171,9 +177,10 @@ class  RadioTest {
 
         int actual = rad.getCurrentVolume();
         int expected = 0;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
-//уменьшение звука
+
+    //уменьшение звука
     @Test
     void shouldDecreaseCurrentVolume() {
         Radio rad = new Radio();
@@ -181,8 +188,9 @@ class  RadioTest {
 
         int actual = rad.decreaseVolume();
         int expected = 8;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     void shouldDecreaseCurrentVolumeMax() {
         Radio rad = new Radio();
@@ -190,8 +198,9 @@ class  RadioTest {
 
         int actual = rad.decreaseCurrent0Station();
         int expected = 9;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     void shouldDecreaseCurrentVolumeMin() {
         Radio rad = new Radio();
@@ -199,8 +208,9 @@ class  RadioTest {
 
         int actual = rad.getCurrentVolume();
         int expected = 0;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     void shouldDecreaseCurrentVolumeMore() {
         Radio rad = new Radio();
@@ -208,6 +218,6 @@ class  RadioTest {
 
         int actual = rad.decreaseVolume();
         int expected = 4;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 }
