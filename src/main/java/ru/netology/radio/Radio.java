@@ -13,33 +13,25 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentStation(int currentStation) {
-        if (currentStation > 9) {
-            return;
-        }
-        if (currentStation < 0) {
-            return;
-        }
-        this.currentStation = currentStation;
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        currentVolume = newCurrentVolume;
+    }
+    public void setCurrentStation(int newCurrentStation) {
+        if (newCurrentStation <= 9 && newCurrentStation >= 0) {
+            currentStation = newCurrentStation;
+        } else {
+            currentStation = getCurrentStation();}
     }
 
-
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > 10) {
-            return;
-        }
-        if (currentVolume < 0) {
-            return;
-        }
-        this.currentVolume = currentVolume;
-    }
-
+    //
     //увеличение радиостанции
     public int increaseCurrentStation() {
         if (currentStation < 9) {
             currentStation = currentStation + 1;
-        } else
-            currentStation = increaseCurrentStation9();
+        } else {
+            currentStation = increaseCurrentStation9();}
+
         return currentStation;
     }
 
@@ -55,8 +47,9 @@ public class Radio {
     public int decreaseCurrentStation() {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
-        } else
+        } else {
             currentStation = decreaseCurrent0Station();
+        }
         return currentStation;
     }
 
@@ -68,12 +61,13 @@ public class Radio {
         return currentStation;
     }
 
-    //увеличение звука
+    //увеличение громкости
     public int increaseVolume() {
         if (currentVolume < 10) {
             currentVolume = currentVolume + 1;
-        } else
+        } else {
             currentVolume = getCurrentVolume();
+        }
         return currentVolume;
     }
 
@@ -81,7 +75,9 @@ public class Radio {
     public int decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
-        } else currentVolume = getCurrentVolume();
+        } else {
+            currentVolume = getCurrentVolume();
+        }
         return currentVolume;
     }
 }
