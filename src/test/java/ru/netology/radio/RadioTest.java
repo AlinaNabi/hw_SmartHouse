@@ -42,7 +42,6 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-
     @Test
     void shouldIncreaseCurrentStationMoreMax() {
         Radio rad = new Radio();
@@ -52,6 +51,26 @@ class RadioTest {
         int actual = rad.getCurrentStation();
         int expected = 1;
 
+        assertEquals(expected, actual);
+    }
+    //покрытие
+    @Test
+    void shouldIncreaseCurrentStationUnderLimit() {
+        Radio rad = new Radio();
+        rad.setCurrentStationForCoverage(11);
+
+        int actual = rad.increaseCurrentStation();
+        int expected = 11;
+        assertEquals(expected, actual);
+    }
+    //покрытие
+    @Test
+    void shouldDecreaseCurrentStationOverLimit() {
+        Radio rad = new Radio();
+        rad.setCurrentStationForCoverage(-5);
+
+        int actual = rad.decreaseCurrentStation();
+        int expected = -5;
         assertEquals(expected, actual);
     }
     //переключение радиостанций на предыдущую
@@ -70,7 +89,7 @@ class RadioTest {
     void shouldDecreaseCurrentStationMin() {
         Radio rad = new Radio();
         rad.setCurrentStation(0);
-        rad.decreaseCurrent0Station();
+        rad.decreaseCurrentStation();
 
         int actual = rad.getCurrentStation();
         int expected = 9;
