@@ -4,6 +4,14 @@ package ru.netology.radio;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int numberStations = 10;
+
+    public Radio(int numberStations) {
+        this.numberStations = numberStations;
+    }
+
+    public Radio() {
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -12,27 +20,31 @@ public class Radio {
     public int getCurrentVolume() {
         return currentVolume;
     }
-
+    public int getNumberStations() {
+        return numberStations;
+    }
 
     public void setCurrentVolume(int newCurrentVolume) {
         currentVolume = newCurrentVolume;
     }
 
+    public void setNumberStations(int numberStations) {
+        this.numberStations = numberStations;
+    }
+
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation <= 9 && newCurrentStation >= 0) {
+        if (newCurrentStation <= numberStations - 1 && newCurrentStation >= 0) {
             currentStation = newCurrentStation;
-        } else {
-            currentStation = getCurrentStation();
         }
+        this.currentStation = currentStation;
     }
 
     //увеличение радиостанции
     public int increaseCurrentStation() {
-        if (currentStation < 9) {
+        if (currentStation < numberStations - 1) {
             currentStation = currentStation + 1;
-            return currentStation;
         }
-        if (currentStation == 9) {
+        if (currentStation == numberStations -1) {
             currentStation = 0;
         }
         return currentStation;
@@ -43,17 +55,16 @@ public class Radio {
     public int decreaseCurrentStation() {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
-            return currentStation;
         }
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = numberStations - 1;
         }
         return currentStation;
 }
 
     //увеличение громкости
     public int increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         } else {
             currentVolume = getCurrentVolume();
@@ -70,7 +81,5 @@ public class Radio {
         }
         return currentVolume;
     }
-    public void setCurrentStationForCoverage(int newCurrentStation) {
-        this.currentStation = newCurrentStation;
-    }
+
 }
